@@ -369,6 +369,52 @@ p {
   font-weight: 700;
 }
 
+.activity-list,
+.quiz-options {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.activity-question {
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.activity-question h3 {
+  margin-bottom: var(--space-sm);
+  font-size: 1rem;
+}
+
+.choice-row {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.activity-feedback {
+  display: none;
+  margin-top: var(--space-sm);
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+.activity-feedback.is-visible {
+  display: block;
+}
+
+.button.is-correct {
+  background: #2f855a;
+  color: #ffffff;
+}
+
+.button.is-incorrect {
+  background: #c2410c;
+  color: #ffffff;
+}
+
 .lesson-nav {
   display: flex;
   justify-content: space-between;

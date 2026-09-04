@@ -32,6 +32,8 @@ const courseConfig = {
 document.addEventListener("DOMContentLoaded", () => {
   setupMobileNavigation();
   setupPrototypeForms();
+  setupBigDataActivity();
+  setupFinalQuiz();
 });
 
 function setupMobileNavigation() {
@@ -63,6 +65,133 @@ function setupPrototypeForms() {
   });
 }
 
+function setupBigDataActivity() {
+  const activity = document.querySelector("[data-big-data-activity]");
+
+  if (!activity) {
+    return;
+  }
+
+  activity.querySelectorAll(".activity-feedback").forEach((feedback) => {
+    feedback.dataset.message = feedback.textContent.trim();
+  });
+
+  activity.addEventListener("click", (event) => {
+    const selectedButton = event.target.closest("[data-answer]");
+
+    if (!selectedButton) {
+      return;
+    }
+
+    const question = selectedButton.closest(".activity-question");
+    const feedback = question.querySelector(".activity-feedback");
+    const correctAnswer = feedback.dataset.correct;
+    const selectedAnswer = selectedButton.dataset.answer;
+    const isCorrect = selectedAnswer === correctAnswer;
+
+    question.querySelectorAll("[data-answer]").forEach((button) => {
+      button.classList.remove("is-selected", "is-correct", "is-incorrect");
+    });
+
+    selectedButton.classList.add("is-selected", isCorrect ? "is-correct" : "is-incorrect");
+    feedback.classList.add("is-visible");
+    feedback.textContent = isCorrect
+      ? `Correct. ${feedback.dataset.message}`
+      : `Try again. ${feedback.dataset.message}`;
+  });
+}
+
+function setupFinalQuiz() {
+  const quiz = document.querySelector("[data-final-quiz]");
+
+  if (!quiz) {
+    return;
+  }
+
+  const questions = [
+    {
+      question: "Which example is closest to Big Data?",
+      options: ["A single homework grade", "Millions of app clicks every minute", "A handwritten grocery list"],
+      correctIndex: 1
+    },
+    {
+      question: "Which V describes whether data can be trusted?",
+      options: ["Velocity", "Veracity", "Volume"],
+      correctIndex: 1
+    },
+    {
+      question: "What is the first stage in the simple data pipeline?",
+      options: ["Analyze", "Use", "Collect"],
+      correctIndex: 2
+    }
+  ];
+
+  let currentIndex = 0;
+  let score = 0;
+
+  const counter = quiz.querySelector("[data-quiz-counter]");
+  const questionTitle = quiz.querySelector("[data-quiz-question]");
+  const optionsArea = quiz.querySelector("[data-quiz-options]");
+  const feedback = quiz.querySelector("[data-quiz-feedback]");
+  const results = quiz.querySelector("[data-quiz-results]");
+  const restartButton = quiz.querySelector("[data-quiz-restart]");
+
+  function renderQuestion() {
+    const currentQuestion = questions[currentIndex];
+
+    counter.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
+    questionTitle.textContent = currentQuestion.question;
+    feedback.textContent = "";
+    optionsArea.innerHTML = "";
+
+    currentQuestion.options.forEach((option, index) => {
+      const button = document.createElement("button");
+      button.className = "button button-secondary";
+      button.type = "button";
+      button.textContent = option;
+      button.addEventListener("click", () => handleAnswer(index));
+      optionsArea.appendChild(button);
+    });
+  }
+
+  function handleAnswer(selectedIndex) {
+    const currentQuestion = questions[currentIndex];
+    const isCorrect = selectedIndex === currentQuestion.correctIndex;
+
+    if (isCorrect) {
+      score += 1;
+      feedback.textContent = "Correct.";
+    } else {
+      feedback.textContent = `Not quite. Correct answer: ${currentQuestion.options[currentQuestion.correctIndex]}.`;
+    }
+
+    currentIndex += 1;
+
+    if (currentIndex >= questions.length) {
+      showResults();
+      return;
+    }
+
+    setTimeout(renderQuestion, 900);
+  }
+
+  function showResults() {
+    counter.textContent = "Prototype quiz complete";
+    questionTitle.textContent = "Finished";
+    optionsArea.innerHTML = "";
+    results.textContent = `Score: ${score} out of ${questions.length}. This is a demo result for the V1 prototype.`;
+  }
+
+  restartButton.addEventListener("click", () => {
+    currentIndex = 0;
+    score = 0;
+    results.textContent = "Answer the questions to see your prototype score.";
+    renderQuestion();
+  });
+
+  renderQuestion();
+}
+
 // Future module progress section:
 // Add functions here to mark lessons complete and update progress indicators.
 
@@ -70,10 +199,10 @@ function setupPrototypeForms() {
 // Add save/load helpers here so progress can persist in the same browser.
 
 // Future quiz section:
-// Add reusable question rendering, answer checking, and feedback helpers here.
+// Expand the demo quiz into the final assessment after all module questions are approved.
 
 // Future activity section:
-// Add matching, sorting, scenario, and data-pipeline interaction helpers here.
+// Add matching, sorting, scenario, and data-pipeline interaction helpers for later modules.
 
 // Future scoring section:
 // Add score calculation and completion screen logic here.

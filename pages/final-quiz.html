@@ -31,21 +31,22 @@
     <div class="container">
       <p class="eyebrow">Final Assessment</p>
       <h1>Big Data Course Quiz</h1>
-      <p class="hero-text">Placeholder final assessment page for a future mixed quiz and results screen.</p>
+      <p class="hero-text">A short prototype quiz that previews how the final assessment will work.</p>
 
-      <section class="quiz-shell">
+      <section class="quiz-shell" data-final-quiz>
         <div class="quiz-box">
-          <p class="question-counter">Question 1 of 0</p>
-          <h2>Question Area</h2>
-          <p>Quiz placeholder: add final assessment questions after all module content is complete.</p>
+          <p class="question-counter" data-quiz-counter>Question 1 of 3</p>
+          <h2 data-quiz-question>Question Area</h2>
+          <div class="quiz-options" data-quiz-options></div>
+          <p class="form-message" data-quiz-feedback aria-live="polite"></p>
         </div>
 
         <div class="results-box">
           <h2>Score and Results</h2>
-          <p>Results placeholder: show the student's score, feedback, and completion message here.</p>
+          <p data-quiz-results>Answer the questions to see your prototype score.</p>
         </div>
 
-        <button class="button button-secondary" type="button">Restart Quiz</button>
+        <button class="button button-secondary" type="button" data-quiz-restart>Restart Quiz</button>
       </section>
 
       <nav class="lesson-nav" aria-label="Lesson navigation">

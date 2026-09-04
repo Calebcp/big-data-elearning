@@ -72,11 +72,40 @@
           <section class="activity-box">
             <h2>Interactive Activity</h2>
             <p>Prototype activity: students decide whether each example is Big Data.</p>
-            <ul class="placeholder-list">
-              <li>One student's homework score</li>
-              <li>Millions of social media posts every hour</li>
-              <li>A weather sensor network collecting live readings</li>
-            </ul>
+            <div class="activity-list" data-big-data-activity>
+              <article class="activity-question">
+                <h3>One student's homework score</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="no">Not Big Data</button>
+                  <button class="button button-secondary" type="button" data-answer="yes">Big Data</button>
+                </div>
+                <p class="activity-feedback" data-correct="no">
+                  This is normal data because it is small and simple.
+                </p>
+              </article>
+
+              <article class="activity-question">
+                <h3>Millions of social media posts every hour</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="no">Not Big Data</button>
+                  <button class="button button-secondary" type="button" data-answer="yes">Big Data</button>
+                </div>
+                <p class="activity-feedback" data-correct="yes">
+                  This is Big Data because it has large volume and high speed.
+                </p>
+              </article>
+
+              <article class="activity-question">
+                <h3>A weather sensor network collecting live readings</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="no">Not Big Data</button>
+                  <button class="button button-secondary" type="button" data-answer="yes">Big Data</button>
+                </div>
+                <p class="activity-feedback" data-correct="yes">
+                  This can be Big Data because many sensors may create constant live data.
+                </p>
+              </article>
+            </div>
           </section>
 
           <section class="quiz-box">
