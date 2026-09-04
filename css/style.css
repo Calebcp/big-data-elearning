@@ -213,6 +213,10 @@ p {
   border-color: var(--color-primary);
 }
 
+.hero-content .button + .button {
+  margin-left: var(--space-sm);
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -323,6 +327,96 @@ p {
   font-weight: 700;
 }
 
+.split-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+.split-section p:not(.eyebrow) {
+  max-width: 720px;
+  margin-top: var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.team-card img,
+.profile-sidebar img {
+  display: block;
+  width: 132px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 3px solid var(--color-surface-muted);
+}
+
+.team-card h2 {
+  font-size: 1.3rem;
+}
+
+.team-card p {
+  color: var(--color-text-muted);
+}
+
+.team-card .button {
+  margin-top: auto;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.profile-sidebar,
+.profile-content {
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.profile-sidebar {
+  position: sticky;
+  top: 96px;
+}
+
+.profile-sidebar h1 {
+  margin-top: var(--space-md);
+  font-size: 2rem;
+}
+
+.profile-sidebar p,
+.profile-content p {
+  color: var(--color-text-muted);
+}
+
+.profile-content {
+  display: grid;
+  gap: var(--space-md);
+}
+
 .site-footer {
   padding: var(--space-xl) 0;
   background: var(--color-text);
@@ -365,11 +459,27 @@ p {
   }
 
   .card-grid,
+  .team-grid,
   .lesson-layout {
     grid-template-columns: 1fr;
   }
 
+  .split-section,
   .lesson-nav {
     flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-content .button + .button {
+    margin-top: var(--space-sm);
+    margin-left: 0;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+    position: static;
   }
 }
