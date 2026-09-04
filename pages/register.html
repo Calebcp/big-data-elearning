@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Big Data E-Learning</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="site-logo" href="../index.html">Big Data E-Learning</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="module-1.html">Modules</a>
+        <a href="team.html">Team</a>
+        <a href="final-quiz.html">Final Quiz</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <section class="auth-card">
+      <p class="eyebrow">Create Profile</p>
+      <h1>Register</h1>
+      <p class="auth-note">Prototype page only. A real account system would need a backend, which is outside this project version.</p>
+
+      <form class="auth-form" data-prototype-form>
+        <label for="register-name">Full name</label>
+        <input id="register-name" name="register-name" type="text" placeholder="Your name" required>
+
+        <label for="register-email">Email</label>
+        <input id="register-email" name="register-email" type="email" placeholder="student@example.com" required>
+
+        <label for="register-password">Password</label>
+        <input id="register-password" name="register-password" type="password" placeholder="Create password" required>
+
+        <label for="learning-goal">Learning goal</label>
+        <select id="learning-goal" name="learning-goal">
+          <option>Understand Big Data basics</option>
+          <option>Prepare for the final quiz</option>
+          <option>Explore real-world data examples</option>
+        </select>
+
+        <button class="button button-primary" type="submit">Create Prototype Account</button>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Big Data E-Learning Project Team.</p>
+      <p>Built with HTML, CSS, and vanilla JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>

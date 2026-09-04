@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Final Assessment | Big Data E-Learning</title>
+  <title>Login | Big Data E-Learning</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -27,32 +27,31 @@
     </div>
   </header>
 
-  <main class="lesson-main">
-    <div class="container">
-      <p class="eyebrow">Final Assessment</p>
-      <h1>Big Data Course Quiz</h1>
-      <p class="hero-text">Placeholder final assessment page for a future mixed quiz and results screen.</p>
+  <main class="auth-main">
+    <section class="auth-card">
+      <p class="eyebrow">Student Access</p>
+      <h1>Login</h1>
+      <p class="auth-note">Prototype page only. This form shows the planned interface and does not connect to real accounts.</p>
 
-      <section class="quiz-shell">
-        <div class="quiz-box">
-          <p class="question-counter">Question 1 of 0</p>
-          <h2>Question Area</h2>
-          <p>Quiz placeholder: add final assessment questions after all module content is complete.</p>
+      <form class="auth-form" data-prototype-form>
+        <label for="login-email">Email or username</label>
+        <input id="login-email" name="login-email" type="text" placeholder="student@example.com" required>
+
+        <label for="login-password">Password</label>
+        <input id="login-password" name="login-password" type="password" placeholder="Enter password" required>
+
+        <div class="form-row">
+          <label class="checkbox-label">
+            <input type="checkbox" name="remember">
+            Remember this device
+          </label>
+          <a href="register.html">Need an account?</a>
         </div>
 
-        <div class="results-box">
-          <h2>Score and Results</h2>
-          <p>Results placeholder: show the student's score, feedback, and completion message here.</p>
-        </div>
-
-        <button class="button button-secondary" type="button">Restart Quiz</button>
-      </section>
-
-      <nav class="lesson-nav" aria-label="Lesson navigation">
-        <a class="button button-secondary" href="module-5.html">Previous: Module 5</a>
-        <a class="button button-primary" href="../index.html">Back to Home</a>
-      </nav>
-    </div>
+        <button class="button button-primary" type="submit">Login to Course</button>
+        <p class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
   </main>
 
   <footer class="site-footer">

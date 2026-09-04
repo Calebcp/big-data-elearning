@@ -31,6 +31,7 @@ const courseConfig = {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupMobileNavigation();
+  setupPrototypeForms();
 });
 
 function setupMobileNavigation() {
@@ -44,6 +45,21 @@ function setupMobileNavigation() {
   navToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("is-open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
+function setupPrototypeForms() {
+  const forms = document.querySelectorAll("[data-prototype-form]");
+
+  forms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const message = form.querySelector(".form-message");
+      if (message) {
+        message.textContent = "Prototype only: no account data was saved.";
+      }
+    });
   });
 }
 
