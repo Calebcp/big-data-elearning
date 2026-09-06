@@ -36,6 +36,10 @@ This project does not use a backend, database, or frontend framework.
     module-4.html
     module-5.html
     final-quiz.html
+    team.html
+    media.html
+    login.html
+    register.html
 
   assets/
     images/
@@ -56,6 +60,16 @@ This project does not use a backend, database, or frontend framework.
 4. How Big Data Works
 5. Applications and Challenges
 6. Final Assessment
+
+## Prototype Features Started
+
+- Responsive homepage and navigation
+- Five module pages with starter lesson content
+- Team overview and personal profile pages
+- Media plan page for future videos and audio
+- Prototype login and register pages
+- Module 1 activity interaction
+- Short final quiz demo
 
 ## How to Run Locally
 

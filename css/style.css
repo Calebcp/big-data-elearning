@@ -112,12 +112,82 @@ a {
 }
 
 .hero-section {
-  background: linear-gradient(135deg, var(--color-surface-muted), var(--color-surface));
+  background:
+    radial-gradient(circle at top right, rgba(249, 199, 79, 0.22), transparent 32rem),
+    linear-gradient(135deg, var(--color-surface-muted), var(--color-surface));
   border-bottom: 1px solid var(--color-border);
 }
 
 .hero-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  gap: var(--space-xl);
+  align-items: center;
   padding: var(--space-2xl) 0;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-visual {
+  padding: var(--space-lg);
+  background: var(--color-text);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.data-card {
+  display: grid;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md);
+}
+
+.data-card strong {
+  font-size: 2rem;
+}
+
+.data-card small,
+.data-label,
+.hero-visual p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.data-node-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xs);
+  margin: var(--space-md) 0;
+}
+
+.data-node-row span {
+  padding: var(--space-xs);
+  background: var(--color-secondary);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-weight: 700;
+}
+
+.data-meter {
+  height: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+}
+
+.data-meter span {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+}
+
+.hero-visual p {
+  margin-top: var(--space-sm);
+  font-weight: 700;
 }
 
 .eyebrow,
@@ -280,6 +350,22 @@ p {
   font-weight: 700;
 }
 
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.status-grid span {
+  padding: var(--space-sm);
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  font-weight: 700;
+  text-align: center;
+}
+
 .lesson-main {
   padding: var(--space-2xl) 0;
 }
@@ -413,6 +499,94 @@ p {
 .button.is-incorrect {
   background: #c2410c;
   color: #ffffff;
+}
+
+.mini-figure {
+  margin: var(--space-lg) 0 0;
+}
+
+.mini-figure figcaption {
+  margin-top: var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.data-flow-figure,
+.five-v-figure {
+  display: grid;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-text);
+  border-radius: var(--radius-md);
+}
+
+.data-flow-figure {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.five-v-figure {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.data-flow-figure span,
+.data-flow-figure strong,
+.five-v-figure span {
+  padding: var(--space-sm);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  text-align: center;
+}
+
+.data-flow-figure strong {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.media-card {
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.media-card h2 {
+  margin: var(--space-md) 0 var(--space-sm);
+  font-size: 1.35rem;
+}
+
+.media-card p {
+  color: var(--color-text-muted);
+}
+
+.video-placeholder,
+.audio-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 170px;
+  background:
+    linear-gradient(135deg, rgba(34, 87, 122, 0.88), rgba(56, 163, 165, 0.88)),
+    var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.audio-placeholder {
+  min-height: 120px;
+  background:
+    linear-gradient(135deg, rgba(23, 32, 51, 0.92), rgba(249, 199, 79, 0.76)),
+    var(--color-text);
 }
 
 .lesson-nav {
@@ -651,6 +825,11 @@ p {
   .card-grid,
   .team-grid,
   .term-grid,
+  .media-grid,
+  .status-grid,
+  .data-flow-figure,
+  .five-v-figure,
+  .hero-content,
   .lesson-layout {
     grid-template-columns: 1fr;
   }
