@@ -30,11 +30,74 @@ const courseConfig = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  setupThemePicker();
   setupMobileNavigation();
   setupPrototypeForms();
   setupBigDataActivity();
   setupFinalQuiz();
 });
+
+function setupThemePicker() {
+  const headerContent = document.querySelector(".header-content");
+  const siteNav = document.querySelector("#site-nav");
+
+  if (!headerContent || !siteNav) {
+    return;
+  }
+
+  const themes = [
+    { id: "autumn", label: "Autumn" },
+    { id: "winter", label: "Winter" },
+    { id: "summer", label: "Summer" }
+  ];
+  const savedTheme = getSavedTheme();
+  const startingTheme = themes.some((theme) => theme.id === savedTheme) ? savedTheme : "autumn";
+
+  document.documentElement.dataset.theme = startingTheme;
+
+  const picker = document.createElement("div");
+  picker.className = "theme-picker";
+
+  const label = document.createElement("label");
+  label.setAttribute("for", "theme-select");
+  label.textContent = "Theme";
+
+  const select = document.createElement("select");
+  select.id = "theme-select";
+  select.setAttribute("aria-label", "Choose site theme");
+
+  themes.forEach((theme) => {
+    const option = document.createElement("option");
+    option.value = theme.id;
+    option.textContent = theme.label;
+    option.selected = theme.id === startingTheme;
+    select.appendChild(option);
+  });
+
+  select.addEventListener("change", () => {
+    document.documentElement.dataset.theme = select.value;
+    saveTheme(select.value);
+  });
+
+  picker.append(label, select);
+  headerContent.insertBefore(picker, siteNav);
+}
+
+function getSavedTheme() {
+  try {
+    return localStorage.getItem("siteTheme");
+  } catch (error) {
+    return null;
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    localStorage.setItem("siteTheme", theme);
+  } catch (error) {
+    return;
+  }
+}
 
 function setupMobileNavigation() {
   const navToggle = document.querySelector(".nav-toggle");
