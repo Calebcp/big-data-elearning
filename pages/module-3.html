@@ -63,18 +63,73 @@
               store order information in tables, product descriptions as text, and customer
               photos or reviews as unstructured data.
             </p>
+            <p>
+              Data sources are the places where information begins. Common sources include
+              websites, mobile apps, sensors, surveys, purchases, machines, public records,
+              and social media posts. Before analysis begins, teams should understand where
+              the data came from, who created it, and whether it is complete enough to answer
+              the question.
+            </p>
+            <p>
+              The type of data affects the tools used to process it. Structured data can often
+              be filtered or counted quickly. Semi-structured data may need parsing, because
+              useful details are stored inside tags, labels, or key-value pairs. Unstructured
+              data often needs extra steps such as image recognition, speech-to-text, or text
+              analysis before patterns can be found.
+            </p>
+            <div class="example-box">
+              <h3>Case Study: Online Learning Platform</h3>
+              <p>
+                A learning website can collect quiz scores as structured data, clickstream
+                logs as semi-structured data, and recorded student presentations as
+                unstructured data. Combining these sources can help teachers see which topics
+                students understand and where extra support is needed.
+              </p>
+            </div>
           </section>
         </div>
 
         <aside class="lesson-stack">
           <section class="activity-box">
             <h2>Interactive Activity</h2>
-            <p>Prototype activity: students sort examples into data type groups.</p>
-            <ul class="placeholder-list">
-              <li>Class attendance spreadsheet</li>
-              <li>Website activity log</li>
-              <li>Video from a traffic camera</li>
-            </ul>
+            <p>Classify each example by the way the data is organized.</p>
+            <div class="activity-list" data-choice-activity>
+              <article class="activity-question">
+                <h3>Class attendance spreadsheet with rows and columns</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="structured">Structured</button>
+                  <button class="button button-secondary" type="button" data-answer="semi">Semi-structured</button>
+                  <button class="button button-secondary" type="button" data-answer="unstructured">Unstructured</button>
+                </div>
+                <p class="activity-feedback" data-correct="structured">
+                  Structured data follows a fixed format, such as rows and columns.
+                </p>
+              </article>
+
+              <article class="activity-question">
+                <h3>Website activity log with timestamps, page names, and labels</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="structured">Structured</button>
+                  <button class="button button-secondary" type="button" data-answer="semi">Semi-structured</button>
+                  <button class="button button-secondary" type="button" data-answer="unstructured">Unstructured</button>
+                </div>
+                <p class="activity-feedback" data-correct="semi">
+                  Semi-structured data has organization, but it does not always fit a simple table.
+                </p>
+              </article>
+
+              <article class="activity-question">
+                <h3>Video from a traffic camera</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="structured">Structured</button>
+                  <button class="button button-secondary" type="button" data-answer="semi">Semi-structured</button>
+                  <button class="button button-secondary" type="button" data-answer="unstructured">Unstructured</button>
+                </div>
+                <p class="activity-feedback" data-correct="unstructured">
+                  Video is unstructured because it must be processed before a computer can easily analyze it.
+                </p>
+              </article>
+            </div>
           </section>
 
           <section class="quiz-box">
@@ -99,6 +154,6 @@
     </div>
   </footer>
 
-  <script src="../js/app.js"></script>
+  <script src="../js/app.js?v=2"></script>
 </body>
 </html>

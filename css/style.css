@@ -818,6 +818,11 @@ p {
   display: block;
 }
 
+.button.is-selected {
+  outline: 3px solid rgba(244, 183, 64, 0.32);
+  outline-offset: 2px;
+}
+
 .button.is-correct {
   background: #2f855a;
   color: #ffffff;

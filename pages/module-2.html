@@ -64,6 +64,28 @@
               of posts, velocity because new posts appear every second, and variety because
               users share text, photos, videos, reactions, and comments.
             </p>
+            <p>
+              The 5 Vs also help teams decide what problem they are really solving. If the
+              main issue is volume, the system may need more storage. If the main issue is
+              velocity, the system may need live processing. If the main issue is veracity,
+              the team may need cleaning rules, duplicate checks, or ways to detect unreliable
+              information.
+            </p>
+            <p>
+              Value is the most important V because collecting data is not useful by itself.
+              A company, school, hospital, or city should be able to explain what question
+              the data helps answer and what decision it improves.
+            </p>
+            <div class="example-box">
+              <h3>Case Study: Food Delivery App</h3>
+              <p>
+                A delivery app handles thousands of orders, driver locations, restaurant
+                updates, ratings, and payment events. Volume appears in the number of records,
+                velocity appears in live driver tracking, variety appears in different data
+                formats, veracity appears when ratings or addresses are incorrect, and value
+                appears when the app predicts faster delivery routes.
+              </p>
+            </div>
             <figure class="mini-figure">
               <div class="five-v-figure">
                 <span>Volume</span>
@@ -80,12 +102,44 @@
         <aside class="lesson-stack">
           <section class="activity-box">
             <h2>Interactive Activity</h2>
-            <p>Prototype activity: students match examples to the correct V.</p>
-            <ul class="placeholder-list">
-              <li>"New messages arrive every second" matches Velocity.</li>
-              <li>"Some reviews are fake or unclear" matches Veracity.</li>
-              <li>"A company uses data to improve delivery routes" matches Value.</li>
-            </ul>
+            <p>Choose the V that best matches each situation.</p>
+            <div class="activity-list" data-choice-activity>
+              <article class="activity-question">
+                <h3>New messages arrive every second during a live event.</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="velocity">Velocity</button>
+                  <button class="button button-secondary" type="button" data-answer="volume">Volume</button>
+                  <button class="button button-secondary" type="button" data-answer="value">Value</button>
+                </div>
+                <p class="activity-feedback" data-correct="velocity">
+                  Velocity is about how quickly data is created, updated, or received.
+                </p>
+              </article>
+
+              <article class="activity-question">
+                <h3>Some product reviews are fake, unclear, or repeated.</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="variety">Variety</button>
+                  <button class="button button-secondary" type="button" data-answer="veracity">Veracity</button>
+                  <button class="button button-secondary" type="button" data-answer="velocity">Velocity</button>
+                </div>
+                <p class="activity-feedback" data-correct="veracity">
+                  Veracity is about trust, accuracy, and whether the data is reliable.
+                </p>
+              </article>
+
+              <article class="activity-question">
+                <h3>A route app uses traffic data to reduce delivery time.</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="value">Value</button>
+                  <button class="button button-secondary" type="button" data-answer="volume">Volume</button>
+                  <button class="button button-secondary" type="button" data-answer="variety">Variety</button>
+                </div>
+                <p class="activity-feedback" data-correct="value">
+                  Value means the data leads to a useful result or better decision.
+                </p>
+              </article>
+            </div>
           </section>
 
           <section class="quiz-box">
@@ -110,6 +164,6 @@
     </div>
   </footer>
 
-  <script src="../js/app.js"></script>
+  <script src="../js/app.js?v=2"></script>
 </body>
 </html>

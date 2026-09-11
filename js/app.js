@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNavigation();
   setupPrototypeForms();
   setupBigDataActivity();
+  setupChoiceActivities();
   setupFinalQuiz();
 });
 
@@ -122,7 +123,7 @@ function setupPrototypeForms() {
 
       const message = form.querySelector(".form-message");
       if (message) {
-        message.textContent = "Prototype only: no account data was saved.";
+        message.textContent = "This screen is ready for backend account connection.";
       }
     });
   });
@@ -164,6 +165,38 @@ function setupBigDataActivity() {
   });
 }
 
+function setupChoiceActivities() {
+  const activities = document.querySelectorAll("[data-choice-activity]");
+
+  activities.forEach((activity) => {
+    activity.querySelectorAll(".activity-feedback").forEach((feedback) => {
+      feedback.dataset.message = feedback.textContent.trim();
+    });
+
+    activity.addEventListener("click", (event) => {
+      const selectedButton = event.target.closest("[data-answer]");
+
+      if (!selectedButton) {
+        return;
+      }
+
+      const question = selectedButton.closest(".activity-question");
+      const feedback = question.querySelector(".activity-feedback");
+      const isCorrect = selectedButton.dataset.answer === feedback.dataset.correct;
+
+      question.querySelectorAll("[data-answer]").forEach((button) => {
+        button.classList.remove("is-selected", "is-correct", "is-incorrect");
+      });
+
+      selectedButton.classList.add("is-selected", isCorrect ? "is-correct" : "is-incorrect");
+      feedback.classList.add("is-visible");
+      feedback.textContent = isCorrect
+        ? `Correct. ${feedback.dataset.message}`
+        : `Try again. ${feedback.dataset.message}`;
+    });
+  });
+}
+
 function setupFinalQuiz() {
   const quiz = document.querySelector("[data-final-quiz]");
 
@@ -186,6 +219,56 @@ function setupFinalQuiz() {
       question: "What is the first stage in the simple data pipeline?",
       options: ["Analyze", "Use", "Collect"],
       correctIndex: 2
+    },
+    {
+      question: "Which V describes many different forms of data, such as text, images, and video?",
+      options: ["Variety", "Value", "Veracity"],
+      correctIndex: 0
+    },
+    {
+      question: "Which example is usually unstructured data?",
+      options: ["A customer table", "A traffic camera video", "A spreadsheet of scores"],
+      correctIndex: 1
+    },
+    {
+      question: "What does processing data usually involve?",
+      options: ["Cleaning and preparing raw data", "Deleting every record", "Ignoring missing values"],
+      correctIndex: 0
+    },
+    {
+      question: "Why is value important in Big Data?",
+      options: ["It means the data supports a useful decision", "It means the data is always private", "It means the data is small"],
+      correctIndex: 0
+    },
+    {
+      question: "Which action is a responsible data practice?",
+      options: ["Collect all possible data", "Hide how data is used", "Collect only data that is needed"],
+      correctIndex: 2
+    },
+    {
+      question: "Which pipeline stage looks for trends or patterns?",
+      options: ["Store", "Analyze", "Collect"],
+      correctIndex: 1
+    },
+    {
+      question: "What is veracity mostly about?",
+      options: ["How trustworthy the data is", "How colorful the data is", "How old the website is"],
+      correctIndex: 0
+    },
+    {
+      question: "Which source could produce high-velocity data?",
+      options: ["A printed poster", "Live sensor readings", "One saved note"],
+      correctIndex: 1
+    },
+    {
+      question: "What problem can biased data cause?",
+      options: ["Unfair or inaccurate results", "Faster internet speed", "Better colors on a page"],
+      correctIndex: 0
+    },
+    {
+      question: "Which statement best describes Big Data?",
+      options: ["Data that is large, fast, complex, or useful for finding patterns", "Any single number", "Only data stored on paper"],
+      correctIndex: 0
     }
   ];
 
@@ -239,33 +322,20 @@ function setupFinalQuiz() {
   }
 
   function showResults() {
-    counter.textContent = "Prototype quiz complete";
+    const percentage = Math.round((score / questions.length) * 100);
+
+    counter.textContent = "Quiz complete";
     questionTitle.textContent = "Finished";
     optionsArea.innerHTML = "";
-    results.textContent = `Score: ${score} out of ${questions.length}. This is a demo result for the V1 prototype.`;
+    results.textContent = `Score: ${score} out of ${questions.length} (${percentage}%). Review any missed topics, then move back through the modules to strengthen your understanding.`;
   }
 
   restartButton.addEventListener("click", () => {
     currentIndex = 0;
     score = 0;
-    results.textContent = "Answer the questions to see your prototype score.";
+    results.textContent = "Answer the questions to see your score and review guidance.";
     renderQuestion();
   });
 
   renderQuestion();
 }
-
-// Future module progress section:
-// Add functions here to mark lessons complete and update progress indicators.
-
-// Future LocalStorage section:
-// Add save/load helpers here so progress can persist in the same browser.
-
-// Future quiz section:
-// Expand the demo quiz into the final assessment after all module questions are approved.
-
-// Future activity section:
-// Add matching, sorting, scenario, and data-pipeline interaction helpers for later modules.
-
-// Future scoring section:
-// Add score calculation and completion screen logic here.

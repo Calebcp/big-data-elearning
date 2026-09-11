@@ -64,19 +64,70 @@
               processes current road conditions, analyzes possible routes, and uses the result
               to recommend a faster path.
             </p>
+            <p>
+              A real pipeline also includes decisions about quality and timing. Data may need
+              to be checked for missing values, duplicated records, or errors before it can be
+              trusted. Some pipelines run in batches, such as a report generated every night.
+              Others run in real time, such as fraud detection during an online payment.
+            </p>
+            <p>
+              The final step is action. A chart, alert, recommendation, or prediction only
+              matters if someone uses it responsibly. Good Big Data systems connect technical
+              work to a clear goal, such as saving time, reducing risk, improving learning, or
+              helping users make better choices.
+            </p>
+            <div class="example-box">
+              <h3>Case Study: Streaming Service Recommendation</h3>
+              <p>
+                A streaming service collects watch history, stores account activity, processes
+                repeated views and ratings, analyzes patterns between similar viewers, and
+                uses the result to recommend shows. The pipeline must update often because
+                viewer interests change over time.
+              </p>
+            </div>
           </section>
         </div>
 
         <aside class="lesson-stack">
           <section class="activity-box">
             <h2>Interactive Activity</h2>
-            <p>Prototype activity: students arrange the pipeline stages in the correct order.</p>
-            <div class="pipeline-preview">
-              <span>Collect</span>
-              <span>Store</span>
-              <span>Process</span>
-              <span>Analyze</span>
-              <span>Use</span>
+            <p>Match each action to the pipeline stage it belongs to.</p>
+            <div class="activity-list" data-choice-activity>
+              <article class="activity-question">
+                <h3>Remove duplicate app clicks before counting user behavior.</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="collect">Collect</button>
+                  <button class="button button-secondary" type="button" data-answer="process">Process</button>
+                  <button class="button button-secondary" type="button" data-answer="use">Use</button>
+                </div>
+                <p class="activity-feedback" data-correct="process">
+                  Processing prepares raw data by cleaning, combining, or organizing it.
+                </p>
+              </article>
+
+              <article class="activity-question">
+                <h3>Show a warning when traffic is expected to be heavy.</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="store">Store</button>
+                  <button class="button button-secondary" type="button" data-answer="analyze">Analyze</button>
+                  <button class="button button-secondary" type="button" data-answer="use">Use</button>
+                </div>
+                <p class="activity-feedback" data-correct="use">
+                  Using data means applying the result to a decision, message, or action.
+                </p>
+              </article>
+
+              <article class="activity-question">
+                <h3>Save sensor readings in a database so they can be searched later.</h3>
+                <div class="choice-row">
+                  <button class="button button-secondary" type="button" data-answer="collect">Collect</button>
+                  <button class="button button-secondary" type="button" data-answer="store">Store</button>
+                  <button class="button button-secondary" type="button" data-answer="analyze">Analyze</button>
+                </div>
+                <p class="activity-feedback" data-correct="store">
+                  Storage keeps data organized and available for later processing or analysis.
+                </p>
+              </article>
             </div>
           </section>
 
@@ -102,6 +153,6 @@
     </div>
   </footer>
 
-  <script src="../js/app.js"></script>
+  <script src="../js/app.js?v=2"></script>
 </body>
 </html>
