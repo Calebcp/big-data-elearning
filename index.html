@@ -22,8 +22,6 @@
         <a href="pages/team.html">Team</a>
         <a href="pages/media.html">Media</a>
         <a href="pages/final-quiz.html">Final Quiz</a>
-        <a href="pages/login.html">Login</a>
-        <a href="pages/register.html">Register</a>
       </nav>
     </div>
   </header>
@@ -42,10 +40,16 @@
             <a class="button button-primary" href="pages/module-1.html">Start Module 1</a>
             <a class="button button-secondary" href="pages/team.html">Meet the Team</a>
           </div>
+          <div class="hero-stats" aria-label="Course highlights">
+            <span><strong>5</strong> modules</span>
+            <span><strong>13</strong> quiz questions</span>
+            <span><strong>6</strong> contributors</span>
+          </div>
         </div>
 
         <div class="hero-visual data-portal" aria-label="Big Data learning path visual">
           <div class="portal-grid" aria-hidden="true"></div>
+          <div class="scan-line" aria-hidden="true"></div>
           <div class="data-stream stream-one" aria-hidden="true"></div>
           <div class="data-stream stream-two" aria-hidden="true"></div>
           <div class="data-node node-one" aria-hidden="true"></div>
@@ -57,16 +61,16 @@
             <strong>5 Modules</strong>
             <small>Lessons, examples, activities</small>
           </div>
-          <div class="signal-panel">
-            <span>Collect</span>
-            <span>Clean</span>
-            <span>Analyze</span>
-            <span>Act</span>
+          <div class="signal-panel" data-pipeline-demo>
+            <span data-stage="Collect">Collect</span>
+            <span data-stage="Clean">Clean</span>
+            <span data-stage="Analyze">Analyze</span>
+            <span data-stage="Act">Act</span>
           </div>
           <div class="data-meter">
-            <span style="width: 86%;"></span>
+            <span style="width: 100%;"></span>
           </div>
-          <p>Version 2 learning path</p>
+          <p>Complete learning path</p>
         </div>
       </div>
     </section>
@@ -74,20 +78,20 @@
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Course Progress</p>
-          <h2>Version 2 status</h2>
-          <p>The current version includes expanded lessons, interactive activities, profile pages, account screens, seasonal themes, and a full course quiz.</p>
+          <p class="eyebrow">Course Map</p>
+          <h2>Everything you need to learn the basics of Big Data.</h2>
+          <p>Follow the path from simple definitions to real-world decisions, then check your understanding with the final quiz.</p>
         </div>
-        <div class="progress-panel" aria-label="Version 2 progress">
+        <div class="progress-panel" aria-label="Course learning path">
           <div class="progress-bar">
-            <span class="progress-fill" style="width: 86%;"></span>
+            <span class="progress-fill" style="width: 100%;"></span>
           </div>
-          <p class="progress-text">Version 2 course build: 86% complete</p>
+          <p class="progress-text">A complete path from first idea to final assessment.</p>
           <div class="status-grid">
-            <span>16 HTML pages</span>
-            <span>5 lesson modules</span>
-            <span>6 team profiles</span>
-            <span>Interactive practice</span>
+            <span>Learn the core terms</span>
+            <span>Practice with examples</span>
+            <span>Connect ideas to real life</span>
+            <span>Finish with a quiz</span>
           </div>
         </div>
       </div>
@@ -101,43 +105,43 @@
           <p>Each card opens a lesson page with explanations, examples, activities, and quick checks.</p>
         </div>
 
-        <div class="card-grid">
-          <article class="card">
+        <div class="card-grid module-grid">
+          <article class="card module-card" data-module-index="01">
             <p class="card-kicker">Module 1</p>
             <h3>Introduction to Big Data</h3>
             <p>Define Big Data and explore everyday examples.</p>
             <a class="button button-secondary" href="pages/module-1.html">Open Module</a>
           </article>
 
-          <article class="card">
+          <article class="card module-card" data-module-index="02">
             <p class="card-kicker">Module 2</p>
             <h3>The 5 Vs of Big Data</h3>
             <p>Learn about Volume, Velocity, Variety, Veracity, and Value.</p>
             <a class="button button-secondary" href="pages/module-2.html">Open Module</a>
           </article>
 
-          <article class="card">
+          <article class="card module-card" data-module-index="03">
             <p class="card-kicker">Module 3</p>
             <h3>Types and Sources of Data</h3>
             <p>Compare structured, semi-structured, and unstructured data.</p>
             <a class="button button-secondary" href="pages/module-3.html">Open Module</a>
           </article>
 
-          <article class="card">
+          <article class="card module-card" data-module-index="04">
             <p class="card-kicker">Module 4</p>
             <h3>How Big Data Works</h3>
             <p>Follow a simple collect, store, process, analyze, and use pipeline.</p>
             <a class="button button-secondary" href="pages/module-4.html">Open Module</a>
           </article>
 
-          <article class="card">
+          <article class="card module-card" data-module-index="05">
             <p class="card-kicker">Module 5</p>
             <h3>Applications and Challenges</h3>
             <p>Study real-world uses, privacy, security, and ethical concerns.</p>
             <a class="button button-secondary" href="pages/module-5.html">Open Module</a>
           </article>
 
-          <article class="card card-featured">
+          <article class="card card-featured module-card" data-module-index="✓">
             <p class="card-kicker">Final Assessment</p>
             <h3>Course Quiz</h3>
             <p>Review the full learning path with a mixed knowledge check.</p>
@@ -150,12 +154,11 @@
     <section class="section">
       <div class="container split-section">
         <div>
-          <p class="eyebrow">Project Team</p>
+          <p class="eyebrow">Learning Team</p>
           <h2>Echelon Data</h2>
           <p>
-            Our learning platform is being developed by a six-person student team with roles for
-            development, writing, testing, design, and multimedia. The team area introduces
-            each contributor and shows how the work is divided.
+            Meet the people behind the course and see how each contributor supports the
+            lessons, examples, activities, and multimedia experience.
           </p>
         </div>
         <a class="button button-primary" href="pages/team.html">View Team Page</a>
@@ -166,13 +169,13 @@
       <div class="container split-section">
         <div>
           <p class="eyebrow">Creative Media</p>
-          <h2>Video and audio ideas are ready to plug in.</h2>
+          <h2>Visual and audio cues support the lessons.</h2>
           <p>
-            The multimedia plan includes a team intro video, a 5 Vs explainer, a data
-            pipeline clip, and short sound effects for quiz feedback.
+            The media section shows the course themes, explainer moments, pipeline visuals,
+            and feedback cues that make the learning path easier to follow.
           </p>
         </div>
-        <a class="button button-secondary" href="pages/media.html">View Media Plan</a>
+        <a class="button button-secondary" href="pages/media.html">View Media</a>
       </div>
     </section>
   </main>
@@ -180,7 +183,7 @@
   <footer class="site-footer">
     <div class="container footer-content">
       <p>&copy; 2026 Big Data E-Learning Project Team.</p>
-      <p>Built with HTML, CSS, and vanilla JavaScript.</p>
+      <p>A complete beginner-friendly guide to Big Data.</p>
     </div>
   </footer>
 

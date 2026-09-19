@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Big Data E-Learning</title>
+  <title>Course Entry | Big Data E-Learning</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -22,34 +22,36 @@
         <a href="team.html">Team</a>
         <a href="media.html">Media</a>
         <a href="final-quiz.html">Final Quiz</a>
-        <a href="login.html">Login</a>
-        <a href="register.html">Register</a>
       </nav>
     </div>
   </header>
 
   <main class="auth-main">
     <section class="auth-card">
-      <p class="eyebrow">Student Access</p>
-      <h1>Login</h1>
-      <p class="auth-note">Sign in screen for the learning portal interface.</p>
+      <p class="eyebrow">Course Entry</p>
+      <h1>Continue learning</h1>
+      <p class="auth-note">Choose where you want to begin in the Big Data course.</p>
 
-      <form class="auth-form" data-prototype-form>
-        <label for="login-email">Email or username</label>
-        <input id="login-email" name="login-email" type="text" placeholder="student@example.com" required>
+      <form class="auth-form" data-course-form>
+        <label for="learner-name">Name</label>
+        <input id="learner-name" name="learner-name" type="text" placeholder="Your name" required>
 
-        <label for="login-password">Password</label>
-        <input id="login-password" name="login-password" type="password" placeholder="Enter password" required>
+        <label for="starting-point">Starting point</label>
+        <select id="starting-point" name="starting-point">
+          <option>Start with Module 1</option>
+          <option>Review the 5 Vs</option>
+          <option>Practice the final quiz</option>
+        </select>
 
         <div class="form-row">
           <label class="checkbox-label">
-            <input type="checkbox" name="remember">
-            Remember this device
+            <input type="checkbox" name="ready">
+            I am ready to begin
           </label>
-          <a href="register.html">Need an account?</a>
+          <a href="module-1.html">Open Module 1</a>
         </div>
 
-        <button class="button button-primary" type="submit">Login to Course</button>
+        <button class="button button-primary" type="submit">Enter Course</button>
         <p class="form-message" aria-live="polite"></p>
       </form>
     </section>
@@ -58,7 +60,7 @@
   <footer class="site-footer">
     <div class="container footer-content">
       <p>&copy; 2026 Big Data E-Learning Project Team.</p>
-      <p>Built with HTML, CSS, and vanilla JavaScript.</p>
+      <p>A complete beginner-friendly guide to Big Data.</p>
     </div>
   </footer>
 

@@ -4,9 +4,7 @@ Big Data E-Learning is a group class project for a university Programming Method
 
 ## Project Purpose
 
-This website will help students learn Big Data concepts through short lessons, interactive activities, knowledge checks, and a final assessment.
-
-The current version is only a foundation scaffold. It is intentionally simple so the team can build on it during the project.
+This website helps students learn Big Data concepts through short lessons, interactive activities, knowledge checks, and a final assessment.
 
 ## Technologies
 
@@ -61,15 +59,15 @@ This project does not use a backend, database, or frontend framework.
 5. Applications and Challenges
 6. Final Assessment
 
-## Prototype Features Started
+## Course Features
 
 - Responsive homepage and navigation
-- Five module pages with starter lesson content
+- Five module pages with lesson content
 - Team overview and personal profile pages
-- Media plan page for future videos and audio
-- Prototype login and register pages
+- Media page for visual and audio learning support
+- Study entry and learning goal pages
 - Module 1 activity interaction
-- Short final quiz demo
+- Final quiz assessment
 
 ## How to Run Locally
 

@@ -32,7 +32,12 @@ const courseConfig = {
 document.addEventListener("DOMContentLoaded", () => {
   setupThemePicker();
   setupMobileNavigation();
-  setupPrototypeForms();
+  setupActiveNavigation();
+  setupScrollReveal();
+  setupSpotlight();
+  setupPipelineDemo();
+  setupLessonProgressRail();
+  setupCourseForms();
   setupBigDataActivity();
   setupChoiceActivities();
   setupFinalQuiz();
@@ -114,8 +119,127 @@ function setupMobileNavigation() {
   });
 }
 
-function setupPrototypeForms() {
-  const forms = document.querySelectorAll("[data-prototype-form]");
+function setupActiveNavigation() {
+  const currentPath = normalizePath(window.location.pathname);
+
+  document.querySelectorAll(".site-nav a").forEach((link) => {
+    const linkPath = normalizePath(new URL(link.getAttribute("href"), window.location.href).pathname);
+    const isModulesLink = link.textContent.trim() === "Modules" && /module-\d\.html$/.test(currentPath);
+
+    if (linkPath === currentPath || isModulesLink) {
+      link.classList.add("is-active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+}
+
+function normalizePath(path) {
+  return path.replace(/\/$/, "/index.html");
+}
+
+function setupScrollReveal() {
+  const revealTargets = document.querySelectorAll(".section, .card, .lesson-card, .activity-box, .quiz-box, .team-card, .media-card, .auth-card");
+
+  revealTargets.forEach((target) => {
+    target.classList.add("reveal-on-scroll");
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    revealTargets.forEach((target) => target.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.16 });
+
+  revealTargets.forEach((target) => observer.observe(target));
+}
+
+function setupSpotlight() {
+  const updateSpotlight = (event) => {
+    const x = Math.round((event.clientX / window.innerWidth) * 100);
+    const y = Math.round((event.clientY / window.innerHeight) * 100);
+
+    document.documentElement.style.setProperty("--spotlight-x", `${x}%`);
+    document.documentElement.style.setProperty("--spotlight-y", `${y}%`);
+  };
+
+  window.addEventListener("pointermove", updateSpotlight, { passive: true });
+}
+
+function setupPipelineDemo() {
+  const pipeline = document.querySelector("[data-pipeline-demo]");
+
+  if (!pipeline) {
+    return;
+  }
+
+  const stages = Array.from(pipeline.querySelectorAll("[data-stage]"));
+  let activeIndex = 0;
+
+  function setActiveStage() {
+    stages.forEach((stage, index) => {
+      stage.classList.toggle("is-active", index === activeIndex);
+    });
+
+    activeIndex = (activeIndex + 1) % stages.length;
+  }
+
+  setActiveStage();
+  window.setInterval(setActiveStage, 1200);
+}
+
+function setupLessonProgressRail() {
+  const lessonMain = document.querySelector(".lesson-main > .container");
+  const currentPath = normalizePath(window.location.pathname);
+
+  if (!lessonMain || !/(module-\d|final-quiz)\.html$/.test(currentPath)) {
+    return;
+  }
+
+  const rail = document.createElement("nav");
+  rail.className = "lesson-progress-rail";
+  rail.setAttribute("aria-label", "Course module progress");
+
+  const pagesPrefix = currentPath.includes("/pages/") ? "" : "pages/";
+  const items = [
+    { eyebrow: "Module", label: "1", href: `${pagesPrefix}module-1.html` },
+    { eyebrow: "Module", label: "2", href: `${pagesPrefix}module-2.html` },
+    { eyebrow: "Module", label: "3", href: `${pagesPrefix}module-3.html` },
+    { eyebrow: "Module", label: "4", href: `${pagesPrefix}module-4.html` },
+    { eyebrow: "Module", label: "5", href: `${pagesPrefix}module-5.html` },
+    { eyebrow: "Final", label: "Quiz", href: `${pagesPrefix}final-quiz.html` }
+  ];
+
+  items.forEach((item) => {
+    const link = document.createElement("a");
+    const linkPath = normalizePath(new URL(item.href, window.location.href).pathname);
+
+    link.href = item.href;
+    link.innerHTML = `<span>${item.eyebrow}</span>${item.label}`;
+
+    if (linkPath === currentPath) {
+      link.classList.add("is-active");
+      link.setAttribute("aria-current", "page");
+    }
+
+    rail.appendChild(link);
+  });
+
+  const heroText = lessonMain.querySelector(".hero-text");
+  if (heroText) {
+    heroText.insertAdjacentElement("afterend", rail);
+  }
+}
+
+function setupCourseForms() {
+  const forms = document.querySelectorAll("[data-course-form]");
 
   forms.forEach((form) => {
     form.addEventListener("submit", (event) => {
@@ -123,7 +247,7 @@ function setupPrototypeForms() {
 
       const message = form.querySelector(".form-message");
       if (message) {
-        message.textContent = "This screen is ready for backend account connection.";
+        message.textContent = "You are ready to continue. Start with Module 1 or jump to the final quiz when you feel prepared.";
       }
     });
   });
