@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learning Goal | Big Data E-Learning</title>
+  <title>Register | Big Data E-Learning</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -22,19 +22,27 @@
         <a href="team.html">Team</a>
         <a href="media.html">Media</a>
         <a href="final-quiz.html">Final Quiz</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
       </nav>
     </div>
   </header>
 
   <main class="auth-main">
     <section class="auth-card">
-      <p class="eyebrow">Learning Goal</p>
-      <h1>Set your study focus</h1>
-      <p class="auth-note">Set a learning goal before starting the Big Data course.</p>
+      <p class="eyebrow">Create Profile</p>
+      <h1>Register</h1>
+      <p class="auth-note">Create a learner profile before starting the Big Data course.</p>
 
       <form class="auth-form" data-course-form>
         <label for="register-name">Full name</label>
         <input id="register-name" name="register-name" type="text" placeholder="Your name" required>
+
+        <label for="register-email">Email</label>
+        <input id="register-email" name="register-email" type="email" placeholder="student@example.com" required>
+
+        <label for="register-password">Password</label>
+        <input id="register-password" name="register-password" type="password" placeholder="Create password" required>
 
         <label for="learning-goal">Learning goal</label>
         <select id="learning-goal" name="learning-goal">
@@ -43,14 +51,7 @@
           <option>Explore real-world data examples</option>
         </select>
 
-        <label for="confidence-level">Current confidence</label>
-        <select id="confidence-level" name="confidence-level">
-          <option>New to Big Data</option>
-          <option>I know a few terms</option>
-          <option>Ready to review and test myself</option>
-        </select>
-
-        <button class="button button-primary" type="submit">Save Study Focus</button>
+        <button class="button button-primary" type="submit">Create Account</button>
         <p class="form-message" aria-live="polite"></p>
       </form>
     </section>

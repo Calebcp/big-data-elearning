@@ -174,7 +174,7 @@ function setupSpotlight() {
 }
 
 function setupPipelineDemo() {
-  const pipeline = document.querySelector("[data-pipeline-demo]");
+  const pipeline = document.querySelector("[data-pipeline-cycle]");
 
   if (!pipeline) {
     return;
@@ -247,7 +247,7 @@ function setupCourseForms() {
 
       const message = form.querySelector(".form-message");
       if (message) {
-        message.textContent = "You are ready to continue. Start with Module 1 or jump to the final quiz when you feel prepared.";
+        message.textContent = "Welcome. You can continue to Module 1 or review the final quiz when you feel prepared.";
       }
     });
   });
